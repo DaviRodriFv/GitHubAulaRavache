@@ -44,15 +44,6 @@ public class Main {
                 preOrdem(node.right);
             }
 
-            //METODO DE CONTAR IN-ORDER
-            void emOrdem(Node node) {
-                if (node == null)
-                    return;
-                emOrdem(node.left);
-                System.out.print(node.valor + " ");
-                emOrdem(node.right);
-            }
-
             //METODO DE CONTAR EM-ORDER
             void emOrdem(Node node) {
                 if (node == null)
