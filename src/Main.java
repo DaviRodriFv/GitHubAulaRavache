@@ -1,5 +1,8 @@
 import org.w3c.dom.Node;
 
+import java.util.LinkedList;
+import java.util.Queue;
+
 public class Main {
     public static void main(String[] args) {
 
@@ -57,6 +60,26 @@ public class Main {
                 emOrdem(node.left);
                 System.out.print(node.valor + " ");
                 emOrdem(node.right);
+            }
+
+            //METODO POR NIVEL
+            public void porNivel(Node root) {
+                if (root == null) return;
+
+                Queue<Node> fila = new LinkedList<>();
+                fila.add(root);
+
+                while (!fila.isEmpty()) {
+                    Node atual = fila.poll();
+                    System.out.print(atual.valor + " ");
+
+                    if (atual.left != null) {
+                        fila.add(atual.left);
+                    }
+                    if (atual.right != null) {
+                        fila.add(atual.right);
+                    }
+                }
             }
 
         }
