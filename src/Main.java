@@ -54,6 +54,17 @@ public class Main {
                 emOrdem(node.right);
             }
 
+            //METODO POS ORDEM
+            void posOrdem(Node node) {
+                if (node == null)
+                    return;
+
+                posOrdem(node.left);
+                posOrdem(node.right);
+                System.out.print(node.valor + " ");
+            }
+
+
             //METODO POR NIVEL
             public void porNivel(Node root) {
                 if (root == null) return;
@@ -95,6 +106,9 @@ public class Main {
                     }
                 }
             }
+
+            //METODO EM-ORDEM (NAO RECURSIVO)
+
 
         }
 
