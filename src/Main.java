@@ -4,12 +4,12 @@ public class Main {
     public static void main(String[] args) {
 
         class Node{
-            int num;
+            int valor;
             Node left;
             Node right;
 
-            public Node(int num){
-                this.num = num;
+            public Node(int valor){
+                this.valor = valor;
             }
 
         }
@@ -22,8 +22,23 @@ public class Main {
                 return 1 + contarNos(node.left) + contarNos(node.right);
             }
 
+
+            //METODO PARA CONTAR OS NOS
             int getCount() {
                 return contarNos(root);
+            }
+
+            //METODO PARA PRE-ORDEM
+            void preOrdem(Node node){
+
+                if (node == null)
+                    return;
+
+                System.out.print(node.valor + " ");
+
+                preOrdem(node.left);
+
+                preOrdem(node.right);
             }
         }
 
