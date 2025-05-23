@@ -15,6 +15,16 @@ public class Main {
         }
         class ArvoreBinaria{
             Node root;
+
+            int contarNos(Node node) {
+                if (node == null)
+                    return 0;
+                return 1 + contarNos(node.left) + contarNos(node.right);
+            }
+
+            int getCount() {
+                return contarNos(root);
+            }
         }
 
     }
