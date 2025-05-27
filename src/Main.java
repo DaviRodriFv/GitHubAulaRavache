@@ -108,6 +108,22 @@ public class Main {
             }
 
             //METODO EM-ORDEM (NAO RECURSIVO)
+            void emOrdemNaoRecursivo(Node root) {
+                Stack<Node> stack = new Stack<>();
+                Node atual = root;
+
+                while (atual != null || !stack.isEmpty()) {
+                    while (atual != null) {
+                        stack.push(atual);
+                        atual = atual.left;
+                    }
+
+                    atual = stack.pop();
+                    System.out.print(atual.valor + " ");
+
+                    atual = atual.right;
+                }
+            }
 
 
         }
