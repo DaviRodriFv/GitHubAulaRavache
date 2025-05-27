@@ -150,8 +150,73 @@ public class Main {
                 }
             }
 
+            // CONTAR OS NOS (NAO RECURSIVO)
+            int contaNosNaoRecursivo(Node root) {
+                if (root == null)
+                    return 0;
 
-        }
+                Stack<Node> stack = new Stack<>();
+                stack.push(root);
+                int count = 0;
+
+                while (!stack.isEmpty()) {
+                    Node node = stack.pop();
+                    count++;
+
+                    if (node.right != null)
+                        stack.push(node.right);
+                    if (node.left != null)
+                        stack.push(node.left);
+                }
+
+                return count;
+            }
+            //METODO PARA CONTAR NOS FOLHAS
+            static int countLeaves(Node root) {
+
+                if (root == null) {
+                    return 0;
+                }
+                if (root.left == null && root.right == null) {
+                    return 1;
+                }
+                return countLeaves(root.left)
+                        + countLeaves(root.right);
+            }
+
+
+      }
+        ArvoreBinaria arvore = new ArvoreBinaria();
+
+        arvore.root = new Node(10);
+        arvore.root.left = new Node(5);
+        arvore.root.right = new Node(15);
+        arvore.root.left.left = new Node(3);
+        arvore.root.left.right = new Node(7);
+        arvore.root.right.right = new Node(20);
+
+        System.out.println("Pré-Ordem Recursiva:");
+        arvore.preOrdem(arvore.root);
+        System.out.println("\nPré-Ordem Não Recursiva:");
+        arvore.preOrdemNaoRecursivo(arvore.root);
+
+        System.out.println("\n\nEm-Ordem Recursiva:");
+        arvore.emOrdem(arvore.root);
+        System.out.println("\nEm-Ordem Não Recursiva:");
+        arvore.emOrdemNaoRecursivo(arvore.root);
+
+        System.out.println("\n\nPós-Ordem Recursiva:");
+        arvore.posOrdem(arvore.root);
+        System.out.println("\nPós-Ordem Não Recursiva:");
+        arvore.posOrdemNaoRecursivo(arvore.root);
+
+        System.out.println("\n\nPor Nível:");
+        arvore.porNivel(arvore.root);
+
+        System.out.println("\n\nTotal de nós (recursivo): " + arvore.getCount());
+        System.out.println("Total de nós (não recursivo): " + arvore.contaNosNaoRecursivo(arvore.root));
+        System.out.println("Total de folhas: " + ArvoreBinaria.countLeaves(arvore.root));
 
     }
+
 }
