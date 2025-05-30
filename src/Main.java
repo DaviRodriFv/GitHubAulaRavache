@@ -184,6 +184,29 @@ public class Main {
                         + countLeaves(root.right);
             }
 
+            //METODO CONTAR NOS (COM FILA)
+            int contaNosComFila(Node root) {
+                if (root == null)
+                    return 0;
+
+                Queue<Node> fila2 = new LinkedList<>();
+                fila2.add(root);
+                int count2 = 0;
+
+                while (!fila2.isEmpty()) {
+                    Node atual = fila2.poll();
+                    count2++;
+
+                    if (atual.left != null) {
+                        fila2.add(atual.left);
+                    }
+                    if (atual.right != null) {
+                        fila2.add(atual.right);
+                    }
+                }
+                return count2;
+            }
+
 
       }
         ArvoreBinaria arvore = new ArvoreBinaria();
@@ -215,6 +238,7 @@ public class Main {
 
         System.out.println("\n\nTotal de nós (recursivo): " + arvore.getCount());
         System.out.println("Total de nós (não recursivo): " + arvore.contaNosNaoRecursivo(arvore.root));
+        System.out.println("Total de nós (com Fila): " + arvore.contaNosComFila(arvore.root));
         System.out.println("Total de folhas: " + ArvoreBinaria.countLeaves(arvore.root));
 
     }
