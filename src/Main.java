@@ -240,6 +240,20 @@ public class Main {
         System.out.println("Total de nós (com Fila): " + arvore.contaNosComFila(arvore.root));
         System.out.println("Total de folhas: " + ArvoreBinaria.contarNosFolhas(arvore.root));
 
+        //ARVORE AVL
+        ArvoreAVL avrAVL = new ArvoreAVL();
+
+        int[] valores = { 10, 20, 30, 40, 50, 25 };
+        for (int v : valores) avrAVL.insert(v);
+
+        System.out.print("In-order antes da remoção: ");
+        avrAVL.Representacao(avrAVL.root);
+
+        avrAVL.remove(30);
+
+        System.out.print("\nIn-order após remover 30: ");
+        avrAVL.Representacao(avrAVL.root);
+
     }
 
 }
