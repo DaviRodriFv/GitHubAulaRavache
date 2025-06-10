@@ -49,9 +49,9 @@
         Node insert(Node node, int data) {
             if (node == null) return new Node(data);
 
-            if (data < node.data) node.left = inserir(node.left, data);
+            if (data < node.data) node.left = insert(node.left, data);
 
-            else if (data > node.data) node.right = inserir(node.right, data);
+            else if (data > node.data) node.right = insert(node.right, data);
 
             else return node;
 
