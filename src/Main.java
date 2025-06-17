@@ -254,6 +254,22 @@ public class Main {
         System.out.print("\nIn-order após remover 30: ");
         avrAVL.Representacao(avrAVL.root);
 
+        ArvoreRB tree = new ArvoreRB();
+
+        int[] keys = {10, 20, 30, 40, 50, 25 };
+        for (int key : keys) {
+            tree.insertRB(key);
+        }
+
+        System.out.println("Arvore após inserçoes (in-order");
+        tree.inorder();
+
+        tree.delete(15);
+        tree.delete(10);
+
+        System.out.println("Arvore após remocoes (in-order");
+        tree.inorder();
+
     }
 
 }

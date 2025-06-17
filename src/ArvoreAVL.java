@@ -1,4 +1,5 @@
     class Node {
+        public boolean parent;
         int data;
         int height;
         Node left, right;
